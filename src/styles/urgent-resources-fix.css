@@ -1,0 +1,28 @@
+/* Urgent fix for English Resources section spacing */
+
+/* Make absolutely sure the English subtitle gets proper spacing */
+html[lang="en"] body #resources .section-subtitle {
+  margin-top: 2rem !important;
+}
+
+/* Also target the specific en class */
+html[lang="en"] body #resources .section-subtitle.en {
+  margin-top: 2rem !important;
+  display: block !important;
+}
+
+/* Make sure the padding is applied */
+html[lang="en"] body #resources .section-title {
+  margin-bottom: 1.5rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Additional English-specific spacing */
+html[lang="en"] #resources .section-header {
+  padding-top: 1rem;
+}
+
+/* Debug class to check if CSS is being applied */
+#resources.debug-spacing .section-subtitle.en {
+  background-color: rgba(255, 0, 0, 0.1);
+}

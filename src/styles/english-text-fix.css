@@ -1,0 +1,156 @@
+/* English Text Rendering Fixes */
+
+/* Import Montserrat and Open Sans fonts which are used for English text */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* General English text handling */
+[dir="ltr"], 
+.en, [dir="ltr"], 
+.english-title,
+.hero-title.en, 
+.hero-subtitle.en,
+.card-title.en,
+.card-description.en,
+.section-title.en,
+.section-subtitle.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  direction: ltr !important;
+  unicode-bidi: embed !important;
+}
+
+/* Specific fix for English titles */
+.english-title, .english-title * {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.english-title {
+  color: #1a5276; /* Deep blue color for the text */
+  font-size: 28px; 
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.english-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0; /* For LTR alignment */
+  width: 100px; /* Length of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #d4a017; /* Gold/yellow color for the underline */
+}
+
+/* When English language is active, set proper body direction */
+html[lang="en"] body {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  direction: ltr;
+}
+
+/* Make sure text rendering is optimized */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific element overrides for problematic areas */
+h1.en, h2.en, h3.en, h4.en, h5.en, h6.en,
+p.en, span.en, a.en, div.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+}
+
+/* Fix for form elements in English */
+input[dir="ltr"], textarea[dir="ltr"] {
+  text-align: left;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+}
+
+/* Override specific selectors that might have overridden our settings */
+.hero-title.en, 
+.hero-subtitle.en,
+.card-title.en,
+.card-description.en,
+.section-title.en,
+.section-subtitle.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left;
+  direction: ltr;
+}
+
+/* ===== SPECIAL SECTION FIXES - CONSERVATION SECTION ===== */
+
+/* Force proper display for conservation section timeline items */
+html[lang="en"] #conservation .timeline-content h3.en,
+html[lang="en"] #conservation .timeline-content p.en {
+  display: block !important;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+html[lang="en"] #conservation .timeline-content h3.ar,
+html[lang="en"] #conservation .timeline-content p.ar {
+  display: none !important;
+}
+
+/* ===== SPECIAL SECTION FIXES - RESEARCH SECTION ===== */
+
+/* Force proper display for research section tab content */
+html[lang="en"] #research .tab-text h3.en,
+html[lang="en"] #research .tab-text p.en {
+  display: block !important;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+html[lang="en"] #research .tab-text h3.ar,
+html[lang="en"] #research .tab-text p.ar {
+  display: none !important;
+}
+
+/* Tab button language spans */
+html[lang="en"] #research .tab-btn span.en {
+  display: inline-block !important;
+}
+
+html[lang="en"] #research .tab-btn span.ar {
+  display: none !important;
+}
+
+/* General language display rules */
+html[lang="en"] .en {
+  display: inline-block !important;
+}
+
+html[lang="en"] .ar {
+  display: none !important;
+}
+
+/* Fixes for deep nested content in conservation and research sections */
+html[lang="en"] #conservation .section-title.en,
+html[lang="en"] #conservation .section-subtitle.en,
+html[lang="en"] #research .section-title.en,
+html[lang="en"] #research .section-subtitle.en {
+  display: block !important;
+}
+
+html[lang="en"] #conservation .section-title.ar,
+html[lang="en"] #conservation .section-subtitle.ar,
+html[lang="en"] #research .section-title.ar,
+html[lang="en"] #research .section-subtitle.ar {
+  display: none !important;
+}

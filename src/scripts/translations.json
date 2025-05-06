@@ -1,0 +1,236 @@
+{
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "resources": "Genetic Resources",
+      "conservation": "Conservation",
+      "research": "Research",
+      "gallery": "Gallery",
+      "contact": "Contact"
+    },
+    "animals": {
+      "cattle": "Cattle",
+      "goats": "Goats",
+      "sheep": "Sheep",
+      "camels": "Camels",
+      "poultry": "Poultry"
+    },
+    "hero": {
+      "title": "Oman Animal Genetic Resources",
+      "subtitle": "Preserving Oman's rich animal genetic resources for future generations",
+      "cta": "Explore Resources"
+    },
+    "about": {
+      "title": "About Animal Genetic Resources",
+      "content": "The Sultanate of Oman possesses a rich repository of indigenous animal genetic resources that have been adapted to the country's challenging environmental conditions over centuries. These genetic resources include unique breeds of cattle, goats, sheep, camels, poultry, and other livestock that play vital roles in food security, rural livelihoods, and cultural heritage."
+    },
+    "resources": {
+      "title": "Genetic Resources",
+      "subtitle": "Discover Oman's diverse indigenous livestock breeds",
+      "learnMore": "Learn More"
+    },
+    "conservation": {
+      "title": "Conservation Efforts",
+      "subtitle": "Protecting Oman's valuable genetic heritage",
+      "timeline": {
+        "breeding": {
+          "title": "Establishment of Breeding Centers",
+          "content": "The Livestock Production Research Centre in Rumais was established, in addition to two research stations: the Livestock Research Station in Salalah and the Livestock Research Station in Wadi Quriyat, in order to preserve local animal breeds and improve their production efficiency."
+        },
+        "documentation": {
+          "title": "Documentation and Research",
+          "content": "Through conducting characterization and genetic improvement programs, the distinctive traits of local animal breeds have been documented, in addition to periodically carrying out genetic selection programs."
+        },
+        "community": {
+          "title": "Community Engagement",
+          "content": "The outputs of breeding and selection programs for animal breeds are distributed to livestock breeders for breed improvement within the livestock population in the Sultanate of Oman."
+        },
+        "policy": {
+          "title": "Policy Development",
+          "content": "Implementation of national policies to protect animal genetic resources."
+        }
+      }
+    },
+    "research": {
+      "title": "Research & Development",
+      "tabs": {
+        "genetic": {
+          "title": "Genetic Studies",
+          "heading": "Genetic Characterization Studies",
+          "content": "Through conducting characterization and genetic improvement programs, the distinctive traits of local animal breeds have been documented, in addition to periodically carrying out genetic selection programs."
+        },
+        "breeding": {
+          "title": "Breeding Programs",
+          "heading": "Selective Breeding Programs",
+          "content": "Implementation of selective breeding programs to enhance desirable traits while maintaining genetic diversity and adaptation to local conditions."
+        },
+        "productivity": {
+          "title": "Productivity Enhancement",
+          "heading": "Productivity Enhancement Research",
+          "content": "Studies focused on improving the productivity of indigenous breeds through improved nutrition, management practices, and health care while preserving their unique adaptive traits."
+        }
+      }
+    },
+    "gallery": {
+      "title": "Photo Gallery",
+      "filters": {
+        "all": "All",
+        "cattle": "Cattle",
+        "goats": "Goats",
+        "sheep": "Sheep",
+        "camels": "Camels",
+        "poultry": "Poultry"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "submit": "Send Message",
+        "sending": "Sending...",
+        "success": "Thank you for your message! We will get back to you soon."
+      },
+      "info": {
+        "address": {
+          "title": "Address",
+          "content": "Ministry of Agriculture, Fisheries and Water Resources, Muscat, Sultanate of Oman"
+        },
+        "phone": {
+          "title": "Phone:",
+          "content": "+968 2469 XXXX"
+        },
+        "email ": {
+          "title": " Email:   ",  
+          "content": "  Yasser.ALShikili@maf.gov.om"
+        }
+      }
+    },
+    "footer": {
+      "quickLinks": "Quick Links",
+      "resources": "Resources",
+      "followUs": "Follow Us",
+      "copyright": "© 2025 Animal Genetic Resources in Oman. All Rights Reserved."
+    }
+  },
+  "ar": {
+    "nav": {
+      "home": "الرئيسية",
+      "about": "نبذة عامة",
+      "resources": "الموارد الوراثية",
+      "conservation": "جهود الحفاظ",
+      "research": "البحث والتطوير",
+      "gallery": "معرض الصور",
+      "contact": "اتصل بنا"
+    },
+    "animals": {
+      "cattle": "الأبقار",
+      "goats": "الماعز",
+      "sheep": "الأغنام",
+      "camels": "الإبل",
+      "poultry": "الدواجن"
+    },
+    "hero": {
+      "title": "الموارد الوراثية الحيوانية العمانية",
+      "subtitle": "الحفاظ على الموارد الوراثية الحيوانية العمانية للأجيال القادمة",
+      "cta": "استكشف الموارد"
+    },
+    "about": {
+      "title": "نبذة عن الموارد الوراثية الحيوانية",
+      "content": "تمتلك سلطنة عمان مخزونًا غنيًا من الموارد الوراثية الحيوانية المحلية التي تكيفت مع الظروف البيئية الصعبة في البلاد على مر القرون. تشمل هذه الموارد الوراثية سلالات فريدة من الأبقار والماعز والأغنام والإبل والدواجن وغيرها من الماشية التي تلعب أدوارًا حيوية في الأمن الغذائي وسبل العيش الريفية والتراث الثقافي."
+    },
+    "resources": {
+      "title": "الموارد الوراثية",
+      "subtitle": "اكتشف سلالات الماشية المحلية المتنوعة في عمان",
+      "learnMore": "اقرأ المزيد"
+    },
+    "conservation": {
+      "title": "جهود الحفاظ",
+      "subtitle": "حماية التراث الوراثي القيم لعمان",
+      "timeline": {
+        "breeding": {
+          "title": "إنشاء مراكز التربية",
+          "content": "تم إنشاء مركز بحوث الإنتاج الحيواني بالرميس بالإضافة لمحطتين بحثيتين: محطة بحوث الثروة الحيوانية بصلالة ومحطة بحوث الثروة الحيوانية بوادي قريات، وذلك للحفاظ على السلالات الحيوانية المحلية وتحسين كفاءتها الإنتاجية."
+        },
+        "documentation": {
+          "title": "التوثيق والبحث",
+          "content": "من خلال إجراء برامج التوصيف والتحسين الوراثي تم توثيق الصفات المميزة للسلالات الحيوانية المحلية بالإضافة إلى القيام ببرامج الانتخاب الوراثي بصورة دورية"
+        },
+        "community": {
+          "title": "إشراك المجتمع",
+          "content": "مخرجات برامج التحسين والانتخاب للسلالات الحيوانية يتم توزيعها على مربي الماشية لتحسين النسل في القطيع الحيواني في سلطنة عمان "
+        },
+        "policy": {
+          "title": "تطوير السياسات",
+          "content": "تنفيذ سياسات وطنية لحماية الموارد الوراثية الحيوانية."
+        }
+      }
+    },
+    "research": {
+      "title": "البحث والتطوير",
+      "tabs": {
+        "genetic": {
+          "title": "الدراسات الوراثية",
+          "heading": "دراسات التوصيف الوراثي",
+          "content": "بحث مستمر لتوثيق وتحليل التركيب الوراثي لسلالات الماشية المحلية في عمان، وتحديد السمات والتكيفات الفريدة."
+        },
+        "breeding": {
+          "title": "برامج التربية",
+          "heading": "برامج التربية الانتقائية",
+          "content": "تنفيذ برامج التربية الانتقائية لتعزيز السمات المرغوبة مع الحفاظ على التنوع الوراثي والتكيف مع الظروف المحلية."
+        },
+        "productivity": {
+          "title": "تعزيز الإنتاجية",
+          "heading": "بحوث تحسين الإنتاجية",
+          "content": "دراسات تركز على تحسين إنتاجية السلالات المحلية من خلال تحسين التغذية وممارسات الإدارة والرعاية الصحية مع الحفاظ على سماتها التكيفية الفريدة."
+        }
+      }
+    },
+    "gallery": {
+      "title": "معرض الصور",
+      "filters": {
+        "all": "الكل",
+        "cattle": "الأبقار",
+        "goats": "الماعز",
+        "sheep": "الأغنام",
+        "camels": "الإبل",
+        "poultry": "الدواجن"
+      }
+    },
+    "contact": {
+      "title": "اتصل بنا",
+      "form": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "subject": "الموضوع",
+        "message": "الرسالة",
+        "submit": "إرسال الرسالة",
+        "sending": "جاري الإرسال...",
+        "success": "شكرا لرسالتك! سنرد عليك قريبا."
+      },
+      "info": {
+        "address": {
+          "title": "العنوان",
+          "content": "وزارة الزراعة والثروة السمكية وموارد المياه، مسقط، سلطنة عمان"
+        },
+        "phone": {
+          "title": "الهاتف",
+          "content": "+968 2469 XXXX"
+        },
+        "email": {
+          "title": "البريد الإلكتروني",
+          "content": "Yasser.ALShikili@maf.gov.om"
+        }
+      }
+    },
+    "footer": {
+      "quickLinks": "روابط سريعة",
+      "resources": "الموارد",
+      "followUs": "تابعنا",
+      "copyright": "© 2025 الموارد الوراثية الحيوانية في عمان. جميع الحقوق محفوظة."
+    }
+  }
+}

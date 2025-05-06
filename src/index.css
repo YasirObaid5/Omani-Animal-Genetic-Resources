@@ -1,3 +1,17 @@
+/* Import font families */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Tajawal:wght@400;700&family=Amiri:wght@400;700&display=swap');
+
+/* Import all styles */
+@import url('./styles/main.css');
+@import url('./styles/arabic-text-fix.css');
+@import url('./styles/english-text-fix.css');
+@import url('./styles/animations.css');
+@import url('./styles/conservation-fix.css');
+@import url('./styles/conservation-section-selectors.css');
+@import url('./styles/special-sections-fix.css');
+@import url('./styles/resources-spacing-fix.css');
+@import url('./styles/urgent-resources-fix.css'); /* Add this last to ensure highest priority */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +24,35 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+html[dir="ltr"] {
+  direction: ltr !important;
+}
+
+html[dir="rtl"] {
+  direction: rtl !important;
+}
+
+/* Bilingual text rendering fixes */
+.en {
+  direction: ltr !important;
+  text-align: left !important;
+  unicode-bidi: isolate !important;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+}
+
+.ar {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+}
+
+/* Center align hero text regardless of language */
+.hero-title.en, .hero-title.ar,
+.hero-subtitle.en, .hero-subtitle.ar {
+  text-align: center !important;
 }

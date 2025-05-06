@@ -1,0 +1,32 @@
+/* Resources Section Spacing Fix */
+
+/* Specifically target the English version which has spacing issues */
+html[lang="en"] #resources .section-subtitle.en {
+  margin-top: 2rem !important; /* Increased from 1rem to 2rem */
+  display: block !important;
+}
+
+/* Make sure the English title has proper spacing */
+html[lang="en"] #resources .section-header {
+  margin-bottom: 2rem !important;
+}
+
+/* Add specific padding between title and subtitle for English */
+html[lang="en"] #resources .section-title {
+  margin-bottom: 1.5rem !important; /* This adds extra space after the decorative line */
+}
+
+/* Ensure the underline has proper spacing in English */
+html[lang="en"] #resources .section-title::after {
+  margin-bottom: 1rem !important; /* Add more space below the decorative line */
+}
+
+/* Important: Override any conflicting rules */
+html[lang="en"] #resources .section-header .section-subtitle.en {
+  margin-top: 2rem !important;
+}
+
+/* Make sure Arabic spacing remains good (if needed) */
+html[lang="ar"] #resources .section-subtitle.ar {
+  margin-top: 1rem !important;
+}

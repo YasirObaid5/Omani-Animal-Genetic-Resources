@@ -1,0 +1,160 @@
+/* Header styling fixes */
+
+/* Fix header grid layout */
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 80px;
+    max-width: 1400px; /* Increase max-width for better spacing */
+}
+
+/* Ensure second logo appears on all pages */
+.header .container.two-logos::after {
+    content: "";
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 100px;
+}
+
+/* Ensure navigation has enough space */
+.main-nav {
+    flex: 2; /* Take up more horizontal space */
+    margin: 0 40px; /* Add margin between logos and navigation */
+    display: flex;
+    justify-content: center;
+}
+
+/* Give nav items proper spacing */
+.nav-list {
+    display: flex;
+    gap: 24px; /* Increase gap between menu items */
+    align-items: center;
+}
+
+/* Ensure logos don't shrink too much */
+.logo {
+    flex-shrink: 0;
+    min-width: 200px; /* Reduce min-width to give more space to navigation */
+}
+
+/* Fix logo image sizing */
+.site-logo-img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: contain !important;
+}
+
+/* Ensure navigation text is properly styled */
+.nav-link {
+    color: #ffffff;
+    font-size: 16px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.beta-ribbon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #e74c3c;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 4px 48px;
+    transform: rotate(-45deg);
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 110;
+  }
+  
+  /* Ensure the container is positioned relative */
+  .site-container {
+    position: relative;
+  }
+  
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .nav-list {
+        gap: 16px; /* Reduce gap on smaller screens */
+    }
+    
+    .main-nav {
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header .container {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 80px;
+    }
+    
+    .logo {
+        min-width: 150px;
+    }
+    
+    .main-nav {
+        flex: 1;
+        width: 100%;
+        order: 3;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+    }
+    
+    .header .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        padding: 0 15px;
+    }
+    
+    .logo {
+        min-width: auto;
+        max-width: 40%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .logo:last-of-type {
+        display: none; /* Hide the second logo on mobile */
+    }
+    
+    .site-logo-img {
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 10px !important;
+    }
+    
+    .logo-text h1 {
+        font-size: 1rem;
+    }
+    
+    .main-nav {
+        margin: 0;
+        order: 2;
+        display: flex;
+        justify-content: flex-end;
+        width: 80px; /* Give more space to the menu toggle */
+    }
+}

@@ -1,0 +1,224 @@
+/* Arabic Text Rendering Fixes */
+
+/* Import Amiri font which has excellent Arabic rendering */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+/* General Arabic text handling */
+[dir="rtl"], 
+.ar, [dir="rtl"], 
+.arabic-title,
+.hero-title.ar, 
+.hero-subtitle.ar,
+.card-title.ar,
+.card-description.ar,
+.section-title.ar,
+.section-subtitle.ar {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  white-space: normal !important;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  direction: rtl !important;
+  unicode-bidi: embed !important;
+}
+
+/* Specific fix for Arabic titles */
+.arabic-title, .arabic-title * {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: embed;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  white-space: normal;
+}
+
+.arabic-title {
+  color: #1a5276; /* Deep blue color for the text */
+  font-size: 28px; 
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-align: right;
+}
+
+.arabic-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0; /* For RTL alignment */
+  width: 100px; /* Length of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #d4a017; /* Gold/yellow color for the underline */
+}
+
+/* When Arabic language is active, set proper body direction */
+html[lang="ar"] body {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  direction: rtl;
+}
+
+/* Override any settings that might break Arabic text connections */
+.ar * {
+  letter-spacing: 0 !important;
+}
+
+/* Make sure text rendering is optimized */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific element overrides for problematic areas */
+h1.ar, h2.ar, h3.ar, h4.ar, h5.ar, h6.ar,
+p.ar, span.ar, a.ar, div.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+}
+
+/* Fix for form elements in Arabic */
+input[dir="rtl"], textarea[dir="rtl"] {
+  text-align: right;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+}
+
+/* Override specific selectors that might have overridden our settings */
+.hero-title.ar, 
+.hero-subtitle.ar,
+.card-title.ar,
+.card-description.ar,
+.section-title.ar,
+.section-subtitle.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  text-align: right;
+  direction: rtl;
+}
+
+/* ===== STATS COMPONENTS - CONSOLIDATED RULES ===== */
+
+/* Stats container layout */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Individual stat item */
+.stat-item {
+  width: auto;
+  min-width: 120px;
+  margin: 0 10px 20px 10px;
+  position: relative;
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stat number styling */
+.stat-number {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color, #2A5F7E);
+  margin-bottom: 5px;
+}
+
+/* Divider line after number */
+.stat-number::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #D4AF37;
+  margin: 5px auto 8px auto;
+}
+
+/* Base styles for all stat labels */
+.stat-label {
+  display: block;
+  text-align: center;
+  width: 100%;
+  line-height: 1.5;
+  padding: 0 5px;
+  font-size: 0.9rem;
+  color: var(--gray-dark, #888888);
+}
+
+/* English specific stat label */
+.stat-label.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Arabic specific stat label */
+.stat-label.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+  word-spacing: normal;
+}
+
+/* Language display logic - show only current language */
+html[lang="en"] .stat-label.en {
+  display: block;
+}
+
+html[lang="en"] .stat-label.ar {
+  display: none;
+}
+
+html[lang="ar"] .stat-label.en {
+  display: none;
+}
+
+html[lang="ar"] .stat-label.ar {
+  display: block;
+}
+
+/* Mobile responsiveness for stats */
+@media (max-width: 767px) {
+  .stats-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .stat-item {
+    width: 30%;
+    min-width: 100px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}
+
+/* Fixes for Firefox and other browsers */
+body:not(:root):not(:-moz-handler-blocked) .stat-label.ar {
+  right: 0;
+  left: 0;
+  width: 100%;
+}

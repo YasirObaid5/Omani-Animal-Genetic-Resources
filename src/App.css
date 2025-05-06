@@ -3,8 +3,15 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 80vmin;
   pointer-events: none;
+  display: flex;
+  background-color: #003049;
+  padding: 0.5rem 1rem;
+}
+.App-logo:hover {
+  /* lighten back on hover, if desired */
+  filter: brightness(0.6) contrast(1.1);
 }
 
 @media (prefers-reduced-motion: no-preference) {
