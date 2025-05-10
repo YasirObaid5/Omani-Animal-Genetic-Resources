@@ -133,12 +133,7 @@ const PoultryPage = ({ currentLang, switchLanguage }) => {
                     {currentLang === 'en' ? 'Maximum Egg Production' : 'الحد الأقصى لإنتاج البيض'}
                   </div>
                 </div>
-                <div className="stat-item">
-                  <div className="stat-number" data-count="100">0</div>
-                  <div className={`stat-label ${currentLang}`}>
-                    {currentLang === 'en' ? 'Years of Adaptation' : 'سنوات من التكيف'}
-                  </div>
-                </div>
+
               </div>
             </div>
             <div className="about-image">
