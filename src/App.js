@@ -181,32 +181,25 @@ function HomePage({ currentLang, switchLanguage, menuOpen, setMenuOpen }) {
 
 // LanguageSwitcher Component
 function LanguageSwitcher({ currentLang, switchLanguage }) {
-  // Detect if we're on a 1366x768 resolution - this is a direct JavaScript fix
-  const is1366Resolution = window.innerWidth === 1366 || 
-                         (window.innerWidth >= 1365 && window.innerWidth <= 1367);
+  // Apply special styling for resolutions 1440x900 and below
+  const needsSpecialStyle = window.innerWidth <= 1440;
   
-  // Detect if we're on a 1360x768 resolution
-  const is1360Resolution = window.innerWidth === 1360 || 
-                         (window.innerWidth >= 1359 && window.innerWidth <= 1361);
-  
-  // Either resolution needs special styling
-  const needsSpecialStyle = is1366Resolution || is1360Resolution;
-  
-  // Create inline styles for that specific resolution
+  // Create inline styles for display resolutions 1440x900 and below
   const languageSwitcherStyle = needsSpecialStyle ? {
+    position: 'fixed',
+    top: '85px',
+    right: '15px',
+    zIndex: 1000,
     display: 'flex',
     flexDirection: 'column',
     minWidth: '120px',
     width: 'auto',
     backgroundColor: 'rgba(42, 95, 126, 0.9)',
     overflow: 'visible',
-    padding: '0'
+    padding: '0',
+    borderRadius: '8px',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
   } : {};
-  
-  // For 1360 resolution specifically, move the language switcher down
-  if (is1360Resolution) {
-    languageSwitcherStyle.top = '85px';
-  }
   
   const langBtnStyle = needsSpecialStyle ? {
     display: 'block',
@@ -235,10 +228,7 @@ function LanguageSwitcher({ currentLang, switchLanguage }) {
     <div 
       className="language-switcher" 
       style={languageSwitcherStyle} 
-      data-resolution={
-        is1366Resolution ? '1366' : 
-        is1360Resolution ? '1360' : 'other'
-      }
+      data-resolution={needsSpecialStyle ? 'small' : 'large'}
     >
       <button 
         className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`} 

@@ -557,13 +557,25 @@ body[dir="rtl"] .header .site-logo-img {
   }
 }
 
-/* Alternative fix for 1366 x 768 resolution with vertical layout strategy */
-@media screen and (width: 1366px) and (height: 768px),
+/* Vertical layout strategy for all resolutions 1440x900 and below */
+@media screen and (max-width: 1440px),
+       screen and (width: 1440px) and (height: 900px),
+       screen and (width: 1400px) and (height: 1050px),
+       screen and (width: 1366px) and (height: 768px),
        screen and (width: 1366px),
-       screen and (max-width: 1366px) and (min-width: 1365px),
        screen and (width: 1360px) and (height: 768px),
-       screen and (width: 1360px) {
+       screen and (width: 1360px),
+       screen and (width: 1280px) and (height: 1024px),
+       screen and (width: 1280px) and (height: 960px),
+       screen and (width: 1280px) and (height: 800px),
+       screen and (width: 1280px) and (height: 768px),
+       screen and (width: 1280px) and (height: 720px),
+       screen and (width: 1280px) and (height: 600px) {
   .language-switcher {
+    position: fixed !important;
+    top: 85px !important; /* Position it below the header to avoid overlap with logo */
+    right: 15px !important;
+    z-index: 1000 !important;
     display: flex !important;
     flex-direction: column !important;
     width: auto !important;
@@ -572,6 +584,8 @@ body[dir="rtl"] .header .site-logo-img {
     padding: 0 !important;
     overflow: visible !important;
     box-sizing: border-box !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   }
   
   .lang-btn {
@@ -589,15 +603,20 @@ body[dir="rtl"] .header .site-logo-img {
   .lang-btn:first-child {
     margin-bottom: 1px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0 !important;
+    border-radius: 8px 8px 0 0 !important;
   }
   
   .lang-btn:last-child {
-    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md) !important;
+    border-radius: 0 0 8px 8px !important;
   }
   
   .lang-btn.active {
     background-color: var(--secondary-color) !important;
+  }
+  
+  /* Hero content padding adjustment to prevent overlap */
+  .hero-content {
+    padding-top: 40px !important;
   }
 }
 
@@ -801,30 +820,23 @@ body[dir="rtl"] .special-section-icon {
   color: #D4AF37;
 }
 
-/* Additional fallback fix for 1366x768 resolution using animation delay */
-@media screen and (width: 1366px) and (height: 768px) {
+/* Transition effect for language switcher on all smaller screens */
+@media screen and (max-width: 1440px) {
   .language-switcher {
-    position: relative;
-    height: auto;
-    min-height: 90px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .language-switcher .lang-btn:nth-child(1) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transition: all 0.3s;
-    z-index: 2;
+  .language-switcher:hover {
+    background-color: rgba(42, 95, 126, 1) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2) !important;
   }
   
-  .language-switcher .lang-btn:nth-child(2) {
-    position: absolute;
-    top: 45px;
-    left: 0;
-    right: 0;
-    transition: all 0.3s;
-    z-index: 1;
+  .lang-btn {
+    transition: background-color 0.3s ease;
+  }
+  
+  .lang-btn:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
   }
   
   /* Additional spacing for hero content to prevent overlap */
@@ -833,44 +845,14 @@ body[dir="rtl"] .special-section-icon {
   }
 }
 
-/* Specific fix for 1360x768 resolution */
-@media screen and (width: 1360px) and (height: 768px),
-       screen and (width: 1360px) {
+/* Additional styling for specific screen sizes (if needed) */
+@media screen and (width: 1280px) and (height: 600px) {
+  /* Add extra padding for extremely short screens */
   .language-switcher {
-    position: fixed !important;
-    top: 85px !important; /* Position it slightly below the header to avoid overlap with logo */
-    right: 15px !important;
-    z-index: 1000 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    width: auto !important;
-    min-width: 120px !important;
-    background-color: rgba(42, 95, 126, 0.9) !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
+    top: 80px !important;
   }
   
   .lang-btn {
-    display: block !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    text-align: center !important;
-    margin: 0 !important;
     padding: 10px 15px !important;
-    font-size: 0.95rem !important;
-    color: white !important;
-  }
-  
-  .lang-btn:first-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-  }
-  
-  .lang-btn.active {
-    background-color: var(--secondary-color) !important;
-  }
-  
-  /* Add some space to the hero content to prevent overlap */
-  .hero-content {
-    padding-top: 40px !important;
   }
 }
