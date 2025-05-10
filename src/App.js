@@ -185,8 +185,15 @@ function LanguageSwitcher({ currentLang, switchLanguage }) {
   const is1366Resolution = window.innerWidth === 1366 || 
                          (window.innerWidth >= 1365 && window.innerWidth <= 1367);
   
+  // Detect if we're on a 1360x768 resolution
+  const is1360Resolution = window.innerWidth === 1360 || 
+                         (window.innerWidth >= 1359 && window.innerWidth <= 1361);
+  
+  // Either resolution needs special styling
+  const needsSpecialStyle = is1366Resolution || is1360Resolution;
+  
   // Create inline styles for that specific resolution
-  const languageSwitcherStyle = is1366Resolution ? {
+  const languageSwitcherStyle = needsSpecialStyle ? {
     display: 'flex',
     flexDirection: 'column',
     minWidth: '120px',
@@ -196,7 +203,12 @@ function LanguageSwitcher({ currentLang, switchLanguage }) {
     padding: '0'
   } : {};
   
-  const langBtnStyle = is1366Resolution ? {
+  // For 1360 resolution specifically, move the language switcher down
+  if (is1360Resolution) {
+    languageSwitcherStyle.top = '85px';
+  }
+  
+  const langBtnStyle = needsSpecialStyle ? {
     display: 'block',
     width: '100%',
     minWidth: '0',
@@ -207,20 +219,27 @@ function LanguageSwitcher({ currentLang, switchLanguage }) {
     color: 'white'
   } : {};
   
-  const firstBtnStyle = is1366Resolution ? {
+  const firstBtnStyle = needsSpecialStyle ? {
     ...langBtnStyle,
     marginBottom: '1px',
     borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
     borderRadius: '8px 8px 0 0'
   } : langBtnStyle;
   
-  const secondBtnStyle = is1366Resolution ? {
+  const secondBtnStyle = needsSpecialStyle ? {
     ...langBtnStyle,
     borderRadius: '0 0 8px 8px'
   } : langBtnStyle;
 
   return (
-    <div className="language-switcher" style={languageSwitcherStyle} data-resolution={is1366Resolution ? '1366' : 'other'}>
+    <div 
+      className="language-switcher" 
+      style={languageSwitcherStyle} 
+      data-resolution={
+        is1366Resolution ? '1366' : 
+        is1360Resolution ? '1360' : 'other'
+      }
+    >
       <button 
         className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`} 
         onClick={() => switchLanguage('en')}
