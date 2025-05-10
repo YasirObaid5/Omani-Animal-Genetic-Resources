@@ -10,7 +10,7 @@ function Footer({ currentLang }) {
           <div className="footer-logo">
             <img src="/images/arabic_image_0.jpg" alt="Logo" className="footer-logo-img" />
             <div className="footer-logo-text">
-              <h3 className={currentLang}>{translations[currentLang].nav?.title || 'Genetic Resources of Omani Domesticated Animals'}</h3>
+              <h3 className={currentLang}>{translations[currentLang].nav?.title || 'Omani Animal Genetic Resources'}</h3>
             </div>
           </div>
           <div className="footer-links">
