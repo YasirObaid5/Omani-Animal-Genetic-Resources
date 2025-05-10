@@ -1670,6 +1670,22 @@ body[dir="rtl"] .footer-logo-img {
   }
 }
 
+/* Specific fix for 1366 x 768 resolution */
+@media (width: 1366px) and (height: 768px) {
+  .language-switcher {
+    width: 220px;  /* Force a wider container */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .lang-btn {
+    flex: 1;
+    min-width: 100px; /* Force minimum button width */
+    text-align: center;
+    padding: 8px 12px;
+  }
+}
+
 @media (max-width: 480px) {
   .resources-grid,
   .gallery-grid {
