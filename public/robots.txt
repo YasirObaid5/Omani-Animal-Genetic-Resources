@@ -1,3 +1,12 @@
-# https://www.robotstxt.org/robotstxt.html
+# Prevent translation services from indexing the site
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: AdsBot-Google-Mobile
+Disallow: /
+
+User-agent: GoogleTranslate
+Disallow: /
+
 User-agent: *
-Disallow:
+Allow: /

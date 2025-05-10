@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import translations from '../scripts/translations.json';
 import Header from './Header';
+import Footer from './Footer';
 
 const PoultryPage = ({ currentLang, switchLanguage }) => {
   const [activeTab, setActiveTab] = useState('genetic');
@@ -71,15 +72,29 @@ const PoultryPage = ({ currentLang, switchLanguage }) => {
         }}
       >
         <div className="hero-content">
-          <h1 className={`hero-title ${currentLang}`}>
-            {currentLang === 'en' ? 'Omani Poultry Breeds' : 'سلالات الدواجن العمانية'}
-          </h1>
-          <p className={`hero-subtitle ${currentLang}`}>
-            {currentLang === 'en' ? 
-              'Discover the unique indigenous poultry breeds of Oman' :
-              'اكتشف سلالات الدواجن المحلية الفريدة في عمان'
-            }
-          </p>
+          <div style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.35)', 
+            padding: '20px 30px',
+            borderRadius: '8px',
+            backdropFilter: 'blur(2px)',
+            margin: '0 auto 20px auto',
+            maxWidth: '90%'
+          }}>
+            <h1 className={`hero-title ${currentLang}`}>
+              {currentLang === 'en' ? 'Omani Poultry Breeds' : 'سلالات الدواجن العمانية'}
+            </h1>
+            <p className={`hero-subtitle ${currentLang}`}>
+              {currentLang === 'en' ? 
+                'Discover the unique indigenous poultry breeds of Oman' :
+                'اكتشف سلالات الدواجن المحلية الفريدة في عمان'
+              }
+            </p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <a href="#resources" className={`cta-button ${currentLang}`}>
+              {currentLang === 'en' ? 'Explore Resources' : 'استكشف الموارد'}
+            </a>
+          </div>
         </div>
       </section>
 
@@ -522,78 +537,8 @@ const PoultryPage = ({ currentLang, switchLanguage }) => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <img src="/images/arabic_image_0.jpg" alt="Logo" className="footer-logo-img" />
-              <div className="footer-logo-text">
-                <h3 className={currentLang}>Livestock Research Center</h3>
-              </div>
-            </div>
-            <div className="footer-links">
-              <div className="footer-links-column">
-                <h4 className={currentLang}>
-                  {currentLang === 'en' ? 'Quick Links' : 'روابط سريعة'}
-                </h4>
-                <ul>
-                  <li><Link to="/">
-                    {currentLang === 'en' ? 'Home' : 'الرئيسية'}
-                  </Link></li>
-                  <li><a href="#about">
-                    {currentLang === 'en' ? 'About' : 'نبذة عامة'}
-                  </a></li>
-                  <li><a href="#resources">
-                    {currentLang === 'en' ? 'Resources' : 'الموارد'}
-                  </a></li>
-                  <li><a href="#conservation">
-                    {currentLang === 'en' ? 'Conservation' : 'جهود الحفاظ'}
-                  </a></li>
-                  <li><a href="#research">
-                    {currentLang === 'en' ? 'Research' : 'البحث'}
-                  </a></li>
-                </ul>
-              </div>
-              <div className="footer-links-column">
-                <h4 className={currentLang}>
-                  {currentLang === 'en' ? 'Resources' : 'الموارد'}
-                </h4>
-                <ul>
-                  <li><Link to="/cattle">
-                    {currentLang === 'en' ? 'Cattle' : 'الأبقار'}
-                  </Link></li>
-                  <li><Link to="/goats">
-                    {currentLang === 'en' ? 'Goats' : 'الماعز'}
-                  </Link></li>
-                  <li><Link to="/sheep">
-                    {currentLang === 'en' ? 'Sheep' : 'الأغنام'}
-                  </Link></li>
-                  <li><Link to="/camels">
-                    {currentLang === 'en' ? 'Camels' : 'الإبل'}
-                  </Link></li>
-                  <li><Link to="/poultry">
-                    {currentLang === 'en' ? 'Poultry' : 'الدواجن'}
-                  </Link></li>
-                </ul>
-              </div>
-            </div>
-            {/* <div className="footer-social">
-              <h4 className={currentLang}>
-                {currentLang === 'en' ? 'Follow Us' : 'تابعنا'}
-              </h4>
-              <div className="social-icons">
-                <a href="#" className="social-icon" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-                <a href="#" className="social-icon" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-                <a href="#" className="social-icon" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-                <a href="#" className="social-icon" aria-label="Youtube"><i className="fab fa-youtube"></i></a>
-              </div>
-            </div> */}
-          </div>
-          <div className="footer-bottom">
-          <p className={`copyright ${currentLang}`}>© 2025 Livestock Research Center. All Rights Reserved. Yasir Obaid Thani Al-Shukaili</p>
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer currentLang={currentLang} />
     </div>
   );
 };

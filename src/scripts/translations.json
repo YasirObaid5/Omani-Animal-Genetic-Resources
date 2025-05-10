@@ -17,12 +17,12 @@
       "poultry": "Poultry"
     },
     "hero": {
-      "title": "Oman Animal Genetic Resources",
+      "title": "Omani Animal Genetic Resources",
       "subtitle": "Preserving Oman's rich animal genetic resources for future generations",
       "cta": "Explore Resources"
     },
     "about": {
-      "title": "About Animal Genetic Resources",
+      "title": "About Omani Animal Genetic Resources",
       "content": "The Sultanate of Oman possesses a rich repository of indigenous animal genetic resources that have been adapted to the country's challenging environmental conditions over centuries. These genetic resources include unique breeds of cattle, goats, sheep, camels, poultry, and other livestock that play vital roles in food security, rural livelihoods, and cultural heritage."
     },
     "resources": {
@@ -101,7 +101,7 @@
         },
         "phone": {
           "title": "Phone:",
-          "content": "+968 2469 XXXX"
+          "content": "+968 26896226"
         },
         "email ": {
           "title": " Email:   ",  
@@ -113,7 +113,7 @@
       "quickLinks": "Quick Links",
       "resources": "Resources",
       "followUs": "Follow Us",
-      "copyright": "© 2025 Animal Genetic Resources in Oman. All Rights Reserved."
+      "copyright": "© 2025 Omani Animal Genetic Resources. All Rights Reserved."
     }
   },
   "ar": {
@@ -129,7 +129,7 @@
     "animals": {
       "cattle": "الأبقار",
       "goats": "الماعز",
-      "sheep": "الأغنام",
+      "sheep": "الضأن",
       "camels": "الإبل",
       "poultry": "الدواجن"
     },
@@ -139,7 +139,7 @@
       "cta": "استكشف الموارد"
     },
     "about": {
-      "title": "نبذة عن الموارد الوراثية الحيوانية",
+      "title": " نبذة عن الموارد الوراثية الحيوانية العمانية",
       "content": "تمتلك سلطنة عمان مخزونًا غنيًا من الموارد الوراثية الحيوانية المحلية التي تكيفت مع الظروف البيئية الصعبة في البلاد على مر القرون. تشمل هذه الموارد الوراثية سلالات فريدة من الأبقار والماعز والأغنام والإبل والدواجن وغيرها من الماشية التي تلعب أدوارًا حيوية في الأمن الغذائي وسبل العيش الريفية والتراث الثقافي."
     },
     "resources": {
@@ -195,7 +195,7 @@
         "all": "الكل",
         "cattle": "الأبقار",
         "goats": "الماعز",
-        "sheep": "الأغنام",
+        "sheep": "الضأن",
         "camels": "الإبل",
         "poultry": "الدواجن"
       }
@@ -214,11 +214,11 @@
       "info": {
         "address": {
           "title": "العنوان",
-          "content": "وزارة الزراعة والثروة السمكية وموارد المياه، مسقط، سلطنة عمان"
+          "content": "وزارة الثروة الزراعية والسمكية وموارد المياه، مسقط، سلطنة عمان"
         },
         "phone": {
           "title": "الهاتف",
-          "content": "+968 2469 XXXX"
+          "content": "+968 26896226"
         },
         "email": {
           "title": "البريد الإلكتروني",
@@ -230,7 +230,7 @@
       "quickLinks": "روابط سريعة",
       "resources": "الموارد",
       "followUs": "تابعنا",
-      "copyright": "© 2025 الموارد الوراثية الحيوانية في عمان. جميع الحقوق محفوظة."
+      "copyright": "© 2025 الموارد الوراثية الحيوانية العمانية. جميع الحقوق محفوظة."
     }
   }
 }

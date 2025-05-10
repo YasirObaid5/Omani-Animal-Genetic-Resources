@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import './styles/main.css';
-import './styles/animations.css';
-import './styles/arabic-text-fix.css';
-import './styles/english-text-fix.css';
-import './styles/header-fixes.css';
-import './styles/conservation-center.css';
+import './styles/consolidated-main.css';
+import './styles/consolidated-fixes.css';
 
 // Import components
 import CattlePage from './components/CattlePage';
@@ -14,6 +10,7 @@ import GoatsPage from './components/GoatsPage';
 import SheepPage from './components/SheepPage';
 import CamelsPage from './components/CamelsPage';
 import PoultryPage from './components/PoultryPage';
+import Footer from './components/Footer'; 
 
 // Import translations
 import translations from './scripts/translations.json';
@@ -26,15 +23,60 @@ function App() {
   useEffect(() => {
     const savedLang = localStorage.getItem('preferredLanguage') || 'en';
     setCurrentLang(savedLang);
-    document.documentElement.lang = savedLang;
-    document.documentElement.setAttribute('dir', savedLang === 'ar' ? 'rtl' : 'ltr');
+    applyLanguageSettings(savedLang);
+    
+    // Add translation prevention attribute
+    document.documentElement.className = 'notranslate';
+    
+    // Set specific meta tags to prevent browser translation
+    const metaGoogle = document.createElement('meta');
+    metaGoogle.name = 'google';
+    metaGoogle.content = 'notranslate';
+    document.head.appendChild(metaGoogle);
+    
+    // Set content language meta dynamically
+    const metaContentLang = document.createElement('meta');
+    metaContentLang.httpEquiv = 'Content-Language';
+    metaContentLang.content = savedLang;
+    document.head.appendChild(metaContentLang);
   }, []);
 
-  const switchLanguage = (lang) => {
-    setCurrentLang(lang);
+  // Separate function to apply language settings - this will be reusable
+  const applyLanguageSettings = (lang) => {
+    // Update document properties
     document.documentElement.lang = lang;
     document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    
+    // Update meta tag
+    const metaContentLang = document.querySelector('meta[http-equiv="Content-Language"]');
+    if (metaContentLang) {
+      metaContentLang.content = lang;
+    }
+    
+    // Add CSS classes to control language display instead of using inline styles
+    document.body.classList.remove('lang-en', 'lang-ar');
+    document.body.classList.add(`lang-${lang}`);
+    
+    // Refresh display of elements by toggling a class that forces a repaint
+    document.body.classList.add('language-transition');
+    setTimeout(() => {
+      document.body.classList.remove('language-transition');
+    }, 50);
+  };
+
+  const switchLanguage = (lang) => {
+    // If we're trying to switch to the current language, add a special class
+    // to force a refresh of the content display
+    if (currentLang === lang) {
+      document.body.classList.add('language-refresh');
+      setTimeout(() => {
+        document.body.classList.remove('language-refresh');
+      }, 50);
+    }
+    
+    setCurrentLang(lang);
     localStorage.setItem('preferredLanguage', lang);
+    applyLanguageSettings(lang);
   };
 
   return (
@@ -132,7 +174,7 @@ function HomePage({ currentLang, switchLanguage, menuOpen, setMenuOpen }) {
       <ResearchSection currentLang={currentLang} />
       {/* <GallerySection currentLang={currentLang} /> */}
       <ContactSection currentLang={currentLang} />
-      <Footer currentLang={currentLang} />
+      <Footer currentLang={currentLang} /> {/* Use the imported Footer component */}
     </div>
   );
 }
@@ -165,15 +207,12 @@ function Header({ currentLang, menuOpen, toggleMenu }) {
         <div className="logo">
           <img
             src="/images/logo.jpg"
-            alt="Livestock Research Center Logo"
+            alt="Genetic Resources of Omani Domesticated Animals Logo"
             className="site-logo-img"
             onError={(e) => {
               e.target.src = "/logo512.png";
             }}
           />
-          <div className="logo-text">
-            <h1 className={currentLang}>{translations[currentLang].nav?.title || 'Oman Animal genetic resources'}</h1>
-          </div>
         </div>
         <nav className="main-nav">
           <button 
@@ -230,9 +269,20 @@ function HeroSection({ currentLang }) {
     }}
     >
       <div className="hero-content">
-        <h1 className={`hero-title ${currentLang}`}>{translations[currentLang].hero?.title || 'Oman Animal genetic resources'}</h1>
-        <p className={`hero-subtitle ${currentLang}`}>{translations[currentLang].hero?.subtitle || 'Preserving Oman\'s rich livestock heritage for future generations'}</p>
-        <a href="#resources" className={`cta-button ${currentLang}`}>{translations[currentLang].hero?.cta || 'Explore Resources'}</a>
+        <div style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.35)', 
+          padding: '20px 30px',
+          borderRadius: '8px',
+          backdropFilter: 'blur(2px)',
+          margin: '0 auto 20px auto',
+          maxWidth: '90%'
+        }}>
+          <h1 className={`hero-title ${currentLang}`}>{translations[currentLang].hero?.title || 'Genetic Resources of Omani Domesticated Animals'}</h1>
+          <p className={`hero-subtitle ${currentLang}`}>{translations[currentLang].hero?.subtitle || 'Preserving Oman\'s rich livestock heritage for future generations'}</p>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <a href="#resources" className={`cta-button ${currentLang}`}>{translations[currentLang].hero?.cta || 'Explore Resources'}</a>
+        </div>
       </div>
       <div className="hero-background">
         <div className="particles-container"></div>
@@ -247,7 +297,7 @@ function AboutSection({ currentLang }) {
     <section id="about" className="about">
       <div className="container">
         <div className="section-header">
-          <h2 className={`section-title ${currentLang}`}>{translations[currentLang].about?.title || 'About Animal Genetic Resources'}</h2>
+          <h2 className={`section-title ${currentLang}`}>{translations[currentLang].about?.title || 'About Genetic Resources of Omani Domesticated Animals'}</h2>
         </div>
         <div className="about-content">
           <div className="about-text">
@@ -313,7 +363,7 @@ function ResourcesSection({ currentLang }) {
       image: '/images/Northern_Omani_Sheep.png',
       description: currentLang === 'en' ? 
         'Sheep are represented by two main breeds: the Northern Omani sheep and the less numerous Dhofari sheep.' :
-        'تتمثل الأغنام في سلالتين رئيسيتين: الأغنام العمانية الشمالية والأغنام الظفارية الأقل عددًا.'
+        'تتمثل الضأن في سلالتين رئيسيتين: الأغنام العمانية الشمالية والأغنام الظفارية الأقل عددًا.'
     },
     {
       id: 'camels',
@@ -438,35 +488,6 @@ function ResearchSection({ currentLang }) {
   );
 }
 
-// GallerySection Component
-// function GallerySection({ currentLang }) {
-//   const [activeFilter, setActiveFilter] = useState('all');
-
-//   return (
-//     <section id="gallery" className="gallery">
-//       <div className="container">
-//         <div className="section-header">
-//           <h2 className={`section-title ${currentLang}`}>{translations[currentLang].gallery?.title || 'Photo Gallery'}</h2>
-//         </div>
-//         <div className="gallery-filters">
-//           {translations[currentLang].gallery?.filters && Object.entries(translations[currentLang].gallery.filters).map(([key, value]) => (
-//             <button
-//               key={key}
-//               className={`filter-btn ${activeFilter === key ? 'active' : ''}`}
-//               onClick={() => setActiveFilter(key)}
-//             >
-//               {value}
-//             </button>
-//           ))}
-//         </div>
-//         <div className="gallery-grid">
-//           {/* Gallery images will be implemented based on the original gallery functionality */}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 // ContactSection Component
 function ContactSection({ currentLang }) {
   const [formData, setFormData] = useState({
@@ -557,56 +578,5 @@ function ContactSection({ currentLang }) {
   );
 }
 
-// Footer Component
-function Footer({ currentLang }) {
-  return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-logo">
-            <img src="/images/arabic_image_0.jpg" alt="Logo" className="footer-logo-img" />
-            <div className="footer-logo-text">
-              <h3 className={currentLang}>{translations[currentLang].nav?.title || 'Livestock Research'}</h3>
-            </div>
-          </div>
-          <div className="footer-links">
-          <div className="footer-links">
-  <div className="footer-links-column">
-    <h4 className={currentLang}>{translations[currentLang].footer?.quickLinks || 'Quick Links'}</h4>
-    <ul>
-      {translations[currentLang].nav && Object.entries(translations[currentLang].nav)
-        .filter(([key, value]) => key !== 'gallery')
-        .map(([key, value]) => (
-          <li key={key}><a href={`#${key}`}>{value}</a></li>
-        ))}
-    </ul>
-  </div>
-</div>
-            <div className="footer-links-column">
-              <h4 className={currentLang}>{translations[currentLang].footer?.resources || 'Resources'}</h4>
-              <ul>
-                {translations[currentLang].animals && Object.entries(translations[currentLang].animals).map(([key, value]) => (
-                  <li key={key}><Link to={`/${key}`}>{value}</Link></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          {/* <div className="footer-social">
-            <h4 className={currentLang}>{translations[currentLang].footer?.followUs || 'Follow Us'}</h4>
-            <div className="social-icons">
-              <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-              <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-              <a href="#" className="social-icon"><i className="fab fa-youtube"></i></a>
-            </div>
-          </div> */}
-        </div>
-        <div className="footer-bottom">
-        <p className={`copyright ${currentLang}`}>© 2025 Livestock Research Center. All Rights Reserved. Yasir Obaid Thani Al-Shukaili</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 export default App;

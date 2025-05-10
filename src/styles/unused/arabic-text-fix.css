@@ -222,3 +222,23 @@ body:not(:root):not(:-moz-handler-blocked) .stat-label.ar {
   left: 0;
   width: 100%;
 }
+
+/* Fix for Arabic CTA button - make it smaller and center it */
+.cta-button.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 0.9rem !important;
+  max-width: 180px !important;
+  padding: 0.5rem 1.2rem !important;
+  margin: 0 auto !important;
+  display: inline-block !important;
+}
+
+@media (max-width: 767px) {
+  .cta-button.ar {
+    max-width: 150px !important;
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}

@@ -1,0 +1,7 @@
+/* Button fix for language switcher */
+
+.language-switcher {
+  border: 1px solid white;
+  border-radius: var(--border-radius-md);
+  /* opacity: 1;  */
+}

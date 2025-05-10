@@ -208,12 +208,11 @@ html[lang="ar"] a.ar {
 }
 
 .header .container {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
   padding: 0 var(--spacing-md);
-  gap: 20px;
 }
 
 /* Ensure header has proper height */
@@ -223,19 +222,22 @@ html[lang="ar"] a.ar {
 
 /* Position main nav in the center */
 .main-nav {
-  grid-column: 2;
+  flex: 2;
+  justify-content: center;
 }
 
-/* Position the first logo on the left */
-.header .container > .logo:first-of-type {
-  grid-column: 1;
-  justify-self: flex-start;
-}
-
-/* Position the second logo on the right */
+/* Logo styles */
+.header .container > .logo:first-of-type,
 .header .container > .logo:last-of-type {
-  grid-column: 3;
-  justify-self: flex-end;
+  flex: 1;
+}
+
+.header .container > .logo:first-of-type {
+  justify-content: flex-start;
+}
+
+.header .container > .logo:last-of-type {
+  justify-content: flex-end;
 }
 
 .logo {
@@ -246,7 +248,6 @@ html[lang="ar"] a.ar {
   padding: 4px 8px;
   transition: all var(--transition-fast);
   height: 75px;
-  min-width: 340px;
 }
 
 .logo:hover {
@@ -432,12 +433,41 @@ body[dir="rtl"] .dropdown-menu {
   transition: all var(--transition-fast);
 }
 
+@media (max-width: 1024px) {
+  .logo {
+    min-width: auto;
+    max-width: 250px;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.1rem;
+  }
+  
+  .language-switcher {
+    right: 290px;
+  }
+}
+
 @media (max-width: 767px) {
   .menu-toggle {
     margin-right: 15px;
     margin-left: auto;
     position: relative;
     right: 20px; /* Move the toggle away from the right edge */
+  }
+  
+  .logo {
+    min-width: auto;
+    max-width: 80px;
+  }
+  
+  .logo-text {
+    display: none;
+  }
+  
+  /* Ensure second logo is visible */
+  .header .container > .logo:last-of-type {
+    max-width: 80px;
   }
 }
 
@@ -475,6 +505,10 @@ body[dir="rtl"] .dropdown-menu {
   z-index: 2;
   max-width: 800px;
   padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .hero-title {
@@ -492,7 +526,7 @@ body[dir="rtl"] .dropdown-menu {
 
 .cta-button {
   display: inline-block;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: 0.5rem 1.2rem;
   background-color: var(--secondary-color);
   color: var(--text-dark);
   font-weight: 700;
@@ -500,6 +534,10 @@ body[dir="rtl"] .dropdown-menu {
   transition: all var(--transition-medium);
   animation: fadeInUp 1s ease-out 0.4s;
   animation-fill-mode: both;
+  white-space: nowrap;
+  max-width: 180px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .cta-button:hover {
@@ -634,14 +672,18 @@ body[dir="rtl"] .dropdown-menu {
 }
 
 .card-image {
-  height: 200px;
+  height: 220px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform var(--transition-slow);
 }
 
@@ -1177,6 +1219,12 @@ body[dir="rtl"] .footer-logo-img {
   
   .hero-title {
     font-size: 2.5rem;
+  }
+  
+  .cta-button {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    max-width: 150px;
   }
   
   .section-title {

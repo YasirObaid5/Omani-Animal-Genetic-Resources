@@ -1,0 +1,86 @@
+/* Header layout fix CSS */
+
+/* Reset header container to flexbox */
+.header .container {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  height: 80px !important;
+  padding: 0 1rem !important;
+  gap: 0 !important;
+}
+
+/* Logo styling */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  height: 75px !important;
+  min-width: auto !important;
+  max-width: none !important;
+  width: auto !important;
+}
+
+/* Logo image */
+.site-logo-img {
+  height: 50px !important;
+  width: auto !important;
+}
+
+/* Text in logo */
+.logo-text h1 {
+  font-size: 1.2rem !important;
+  margin-bottom: 0 !important;
+  white-space: normal !important;
+  max-width: 200px !important;
+}
+
+/* Main navigation */
+.main-nav {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Language switcher */
+.language-switcher {
+  position: fixed !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  z-index: 1000 !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .language-switcher {
+    top: 80px !important;
+    right: 1rem !important;
+  }
+  
+  .logo-text h1 {
+    display: none !important;
+  }
+  
+  .menu-toggle {
+    display: flex !important;
+  }
+  
+  .nav-list {
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease !important;
+    background-color: var(--primary-color) !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .nav-list.active {
+    max-height: calc(100vh - 80px) !important;
+    padding: 1rem 0 !important;
+  }
+}

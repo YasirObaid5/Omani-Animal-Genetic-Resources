@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import translations from '../scripts/translations.json';
-import '../styles/header-fixes.css';
 
 const Header = ({ currentLang }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className="header">
       <div className="container">
@@ -17,12 +22,17 @@ const Header = ({ currentLang }) => {
               e.target.src = "/logo512.png";
             }}
           />
-          <div className="logo-text">
-            <h1 className={currentLang}>Livestock Research</h1>
-          </div>
         </div>
         <nav className="main-nav">
-          <ul className="nav-list">
+          <button 
+            className={`menu-toggle ${menuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+          >
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </button>
+          <ul className={`nav-list ${menuOpen ? 'active' : ''}`}>
             <li><Link to="/" className="nav-link">
               {translations[currentLang]?.nav?.home || 'Home'}
             </Link></li>
@@ -47,9 +57,6 @@ const Header = ({ currentLang }) => {
             <li><Link to="/#research" className="nav-link">
               {translations[currentLang]?.nav?.research || 'Research'}
             </Link></li>
-            {/* <li><Link to="/#gallery" className="nav-link">
-              {translations[currentLang]?.nav?.gallery || 'Gallery'}
-            </Link></li> */}
             <li><Link to="/#contact" className="nav-link">
               {translations[currentLang]?.nav?.contact || 'Contact'}
             </Link></li>

@@ -1,0 +1,706 @@
+/* Consolidated Fixes for Oman Animal Genetic Resources Website */
+
+/* ===== LANGUAGE SPECIFIC FIXES ===== */
+
+/* Language transition effect */
+.language-transition,
+.language-refresh {
+  animation: language-fade 0.2s ease-in-out;
+}
+
+@keyframes language-fade {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Language display control using body classes */
+body.lang-en .ar {
+  display: none !important;
+}
+
+body.lang-ar .en {
+  display: none !important;
+}
+
+body.lang-en .en {
+  display: block;
+}
+
+body.lang-ar .ar {
+  display: block;
+}
+
+/* For inline elements */
+body.lang-en span.en,
+body.lang-en a.en {
+  display: inline !important;
+}
+
+body.lang-ar span.ar,
+body.lang-ar a.ar {
+  display: inline !important;
+}
+
+/* General Arabic text handling */
+[dir="rtl"], 
+.ar, [dir="rtl"], 
+.arabic-title,
+.hero-title.ar, 
+.hero-subtitle.ar,
+.card-title.ar,
+.card-description.ar,
+.section-title.ar,
+.section-subtitle.ar {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  white-space: normal !important;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  direction: rtl !important;
+  unicode-bidi: embed !important;
+}
+
+/* Specific fix for Arabic titles */
+.arabic-title, .arabic-title * {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: right;
+  direction: rtl;
+  unicode-bidi: embed;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  white-space: normal;
+}
+
+.arabic-title {
+  color: #1a5276; /* Deep blue color for the text */
+  font-size: 28px; 
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-align: right;
+}
+
+.arabic-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0; /* For RTL alignment */
+  width: 100px; /* Length of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #d4a017; /* Gold/yellow color for the underline */
+}
+
+/* When Arabic language is active, set proper body direction */
+html[lang="ar"] body {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  direction: rtl;
+}
+
+/* Override any settings that might break Arabic text connections */
+.ar * {
+  letter-spacing: 0 !important;
+}
+
+/* Specific element overrides for problematic areas */
+h1.ar, h2.ar, h3.ar, h4.ar, h5.ar, h6.ar,
+p.ar, span.ar, a.ar, div.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+}
+
+/* Fix for form elements in Arabic */
+input[dir="rtl"], textarea[dir="rtl"] {
+  text-align: right;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+}
+
+/* Override specific selectors that might have overridden our settings */
+.hero-title.ar, 
+.hero-subtitle.ar,
+.card-title.ar,
+.card-description.ar,
+.section-title.ar,
+.section-subtitle.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  text-align: right;
+  direction: rtl;
+}
+
+/* Fix for Arabic CTA button - make it smaller and center it */
+.cta-button.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 0.9rem !important;
+  max-width: 180px !important;
+  padding: 0.5rem 1.2rem !important;
+  margin: 0 auto !important;
+  display: inline-block !important;
+}
+
+/* English specific fixes */
+/* General English text handling */
+[dir="ltr"], 
+.en, [dir="ltr"], 
+.english-title,
+.hero-title.en, 
+.hero-subtitle.en,
+.card-title.en,
+.card-description.en,
+.section-title.en,
+.section-subtitle.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  direction: ltr !important;
+  unicode-bidi: embed !important;
+}
+
+/* Specific fix for English titles */
+.english-title, .english-title * {
+  animation: none !important;
+  -webkit-animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.english-title {
+  color: #1a5276; /* Deep blue color for the text */
+  font-size: 28px; 
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.english-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0; /* For LTR alignment */
+  width: 100px; /* Length of the underline */
+  height: 3px; /* Thickness of the underline */
+  background-color: #d4a017; /* Gold/yellow color for the underline */
+}
+
+/* When English language is active, set proper body direction */
+html[lang="en"] body {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  direction: ltr;
+}
+
+/* Specific element overrides for problematic areas */
+h1.en, h2.en, h3.en, h4.en, h5.en, h6.en,
+p.en, span.en, a.en, div.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+}
+
+/* Fix for form elements in English */
+input[dir="ltr"], textarea[dir="ltr"] {
+  text-align: left;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+}
+
+/* Override specific selectors that might have overridden our settings */
+.hero-title.en, 
+.hero-subtitle.en,
+.card-title.en,
+.card-description.en,
+.section-title.en,
+.section-subtitle.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left;
+  direction: ltr;
+}
+
+/* ===== STATS COMPONENTS FIXES ===== */
+/* English specific stat label */
+.stat-label.en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Arabic specific stat label */
+.stat-label.ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+  letter-spacing: 0;
+  word-spacing: normal;
+}
+
+/* Fixes for Firefox and other browsers */
+body:not(:root):not(:-moz-handler-blocked) .stat-label.ar {
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* ===== CONSERVATION SECTION FIXES ===== */
+/* Force proper display for conservation section timeline items */
+body.lang-en #conservation .timeline-content h3.en,
+body.lang-en #conservation .timeline-content p.en {
+  display: block !important;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+body.lang-en #conservation .timeline-content h3.ar,
+body.lang-en #conservation .timeline-content p.ar {
+  display: none !important;
+}
+
+body.lang-ar #conservation .timeline-content h3.ar,
+body.lang-ar #conservation .timeline-content p.ar {
+  display: block !important;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+body.lang-ar #conservation .timeline-content h3.en,
+body.lang-ar #conservation .timeline-content p.en {
+  display: none !important;
+}
+
+/* ===== RESEARCH SECTION FIXES ===== */
+/* Force proper display for research section tab content */
+body.lang-en #research .tab-text h3.en,
+body.lang-en #research .tab-text p.en {
+  display: block !important;
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+body.lang-en #research .tab-text h3.ar,
+body.lang-en #research .tab-text p.ar {
+  display: none !important;
+}
+
+body.lang-ar #research .tab-text h3.ar,
+body.lang-ar #research .tab-text p.ar {
+  display: block !important;
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+body.lang-ar #research .tab-text h3.en,
+body.lang-ar #research .tab-text p.en {
+  display: none !important;
+}
+
+/* Tab button language spans */
+body.lang-en #research .tab-btn span.en {
+  display: inline-block !important;
+}
+
+body.lang-en #research .tab-btn span.ar {
+  display: none !important;
+}
+
+body.lang-ar #research .tab-btn span.ar {
+  display: inline-block !important;
+}
+
+body.lang-ar #research .tab-btn span.en {
+  display: none !important;
+}
+
+/* Fixes for deep nested content in conservation and research sections */
+body.lang-en #conservation .section-title.en,
+body.lang-en #conservation .section-subtitle.en,
+body.lang-en #research .section-title.en,
+body.lang-en #research .section-subtitle.en {
+  display: block !important;
+}
+
+body.lang-en #conservation .section-title.ar,
+body.lang-en #conservation .section-subtitle.ar,
+body.lang-en #research .section-title.ar,
+body.lang-en #research .section-subtitle.ar {
+  display: none !important;
+}
+
+body.lang-ar #conservation .section-title.ar,
+body.lang-ar #conservation .section-subtitle.ar,
+body.lang-ar #research .section-title.ar,
+body.lang-ar #research .section-subtitle.ar {
+  display: block !important;
+}
+
+body.lang-ar #conservation .section-title.en,
+body.lang-ar #conservation .section-subtitle.en,
+body.lang-ar #research .section-title.en,
+body.lang-ar #research .section-subtitle.en {
+  display: none !important;
+}
+
+/* ===== HEADER LAYOUT FIXES ===== */
+.header .logo-text h1 {
+  padding-left: 10px;
+}
+
+body[dir="rtl"] .header .logo-text h1 {
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+.header .main-nav {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header .site-logo-img {
+  margin-right: 5px;
+}
+
+body[dir="rtl"] .header .site-logo-img {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+/* ===== BUTTON FIXES ===== */
+.cta-button, 
+.submit-btn, 
+.filter-btn, 
+.lang-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-button:active, 
+.submit-btn:active, 
+.filter-btn:active, 
+.lang-btn:active {
+  transform: translateY(2px);
+}
+
+.cta-button:focus, 
+.submit-btn:focus, 
+.filter-btn:focus, 
+.lang-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(42, 95, 126, 0.3);
+}
+
+/* ===== TEXT TRANSLATION PREVENTION ===== */
+/* Prevent browser from attempting to translate these elements */
+.logo-text h1, 
+.section-title, 
+.section-subtitle,
+.footer-links-column h4,
+.footer-social h4,
+.copyright,
+.brand-names,
+.resource-names,
+.animal-scientific-names {
+  translate: no;
+}
+
+/* ===== RESPONSIVE FIXES ===== */
+/* iPad Pro specific fix for language switcher - Move below header */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .language-switcher {
+    position: fixed;
+    top: 80px; /* Position below the header */
+    right: var(--spacing-md);
+    z-index: 1000;
+    background-color: rgba(42, 95, 126, 0.9); /* Match header background */
+    padding: 5px;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .lang-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+  
+  /* Prevent overlap with other elements */
+  .hero-content {
+    margin-top: 30px; /* Add space for language switcher */
+  }
+}
+
+/* Special fix for iPad Pro in landscape and portrait orientations */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+  .language-switcher {
+    position: fixed;
+    top: 80px; /* Position below the header */
+    right: var(--spacing-md);
+    z-index: 1000;
+    background-color: rgba(42, 95, 126, 0.9); /* Match header background */
+    padding: 5px;
+    border-radius: var(--border-radius-md);
+  }
+  
+  .lang-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    color: white; /* Better visibility */
+  }
+  
+  .lang-btn.active {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Ensure header layout is not disrupted */
+  .header .container {
+    justify-content: space-between !important;
+    gap: 0 !important;
+  }
+  
+  /* Adjust font size to fit better in available space */
+  .nav-list {
+    gap: var(--spacing-sm);
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  /* Prevent overlap with hero content */
+  .hero-content {
+    margin-top: 30px; /* Add space for language switcher */
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-button.ar {
+    max-width: 150px !important;
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ===== CONSERVATION CENTER FIXES ===== */
+.conservation-center-image {
+  height: 100%;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+  display: block;
+}
+
+.conservation-center-stats {
+  background-color: rgba(247, 243, 233, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.conservation-center-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.conservation-center-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.conservation-center-card h3 {
+  color: #2A5F7E;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.conservation-center-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #D4AF37;
+}
+
+body[dir="rtl"] .conservation-center-card h3::after {
+  left: auto;
+  right: 0;
+}
+
+/* ===== URGENT RESOURCES FIXES ===== */
+.urgent-resources-badge {
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite;
+}
+
+.urgent-resource-card {
+  border-left: 4px solid #e74c3c;
+}
+
+body[dir="rtl"] .urgent-resource-card {
+  border-left: none;
+  border-right: 4px solid #e74c3c;
+}
+
+.urgent-action-btn {
+  background-color: #e74c3c;
+  color: white;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.urgent-action-btn:hover {
+  background-color: #c0392b;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* ===== RESOURCES SPACING FIXES ===== */
+.resources-grid {
+  row-gap: 40px;
+}
+
+.resources-grid .resource-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.resources-grid .card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.resources-grid .card-description {
+  flex-grow: 1;
+}
+
+.resources-grid .card-link {
+  margin-top: auto;
+}
+
+/* ===== SPECIAL SECTIONS FIXES ===== */
+.special-section {
+  position: relative;
+  background-color: rgba(247, 243, 233, 0.5);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #2A5F7E;
+}
+
+.special-section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.special-section-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #2A5F7E;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 24px;
+}
+
+body[dir="rtl"] .special-section-icon {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.special-section-title {
+  color: #2A5F7E;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.special-section-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Conservation Section Selectors */
+.conservation-date {
+  display: inline-block;
+  background-color: #2A5F7E;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.conservation-subtitle {
+  color: #8C5E2A;
+  font-weight: 600;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.conservation-location {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.conservation-location i {
+  margin-right: 5px;
+  color: #D4AF37;
+}
+
+body[dir="rtl"] .conservation-location i {
+  margin-right: 0;
+  margin-left: 5px;
+}

@@ -1,0 +1,103 @@
+/*
+ * This CSS file prevents browser auto-translation from overriding
+ * our manual translations by adding specific classes and attributes
+ */
+
+/* Add notranslate class to the entire document */
+.notranslate {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* Ensure Arabic elements are properly rendered */
+.ar,
+html[lang="ar"] .ar {
+  font-family: 'Amiri', 'Cairo', 'Tajawal', sans-serif !important;
+  direction: rtl !important;
+  unicode-bidi: embed !important;
+  text-align: right !important;
+  white-space: normal !important;
+  letter-spacing: 0 !important;
+  word-spacing: normal !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  /* Prevent automatic translation */
+  translate: no !important;
+  -webkit-translate: no !important;
+  -ms-translate: no !important;
+}
+
+/* Special handling for hero titles and subtitles */
+.hero-title.ar,
+.hero-subtitle.ar,
+html[lang="ar"] .hero-title.ar,
+html[lang="ar"] .hero-subtitle.ar {
+  text-align: center !important;
+}
+
+/* Ensure English elements are properly rendered */
+.en,
+html[lang="en"] .en {
+  font-family: 'Montserrat', 'Open Sans', sans-serif !important;
+  direction: ltr !important;
+  unicode-bidi: embed !important;
+  text-align: left !important;
+  /* Prevent automatic translation */
+  translate: no !important;
+  -webkit-translate: no !important;
+  -ms-translate: no !important;
+}
+
+/* Special handling for hero titles and subtitles in English */
+.hero-title.en,
+.hero-subtitle.en,
+html[lang="en"] .hero-title.en,
+html[lang="en"] .hero-subtitle.en {
+  text-align: center !important;
+}
+
+/* Add translate="no" attribute through CSS (supported in some browsers) */
+[lang="ar"] *,
+[lang="en"] * {
+  translate: no !important;
+  -webkit-translate: no !important;
+  -ms-translate: no !important;
+}
+
+/* Ensure the proper display logic */
+html[lang="ar"] .en {
+  display: none !important;
+}
+
+html[lang="ar"] .ar {
+  display: block !important;
+}
+
+html[lang="en"] .ar {
+  display: none !important;
+}
+
+html[lang="en"] .en {
+  display: block !important;
+}
+
+/* Special handling for inline elements */
+span.ar, a.ar, button.ar {
+  display: inline-block !important;
+}
+
+span.en, a.en, button.en {
+  display: inline-block !important;
+}
+
+html[lang="ar"] span.en, 
+html[lang="ar"] a.en, 
+html[lang="ar"] button.en {
+  display: none !important;
+}
+
+html[lang="en"] span.ar, 
+html[lang="en"] a.ar, 
+html[lang="en"] button.ar {
+  display: none !important;
+}

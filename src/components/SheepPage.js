@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 
 const SheepPage = ({ currentLang, switchLanguage }) => {
   const [activeTab, setActiveTab] = useState('genetic');
@@ -47,7 +48,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
       },
       content: {
         en: 'Establishment of breeding programs to maintain pure lines of both Northern and Dhofari sheep.',
-        ar: 'إنشاء برامج التربية للحفاظ على السلالات النقية من الأغنام الشمالية والظفارية.'
+        ar: 'إنشاء برامج التربية للحفاظ على السلالات النقية من الضأن الشمالية والظفارية.'
       }
     },
     {
@@ -57,7 +58,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
       },
       content: {
         en: 'Recording physical characteristics and performance data of indigenous sheep breeds.',
-        ar: 'تسجيل الخصائص الفيزيائية وبيانات الأداء لسلالات الأغنام المحلية.'
+        ar: 'تسجيل الخصائص الفيزيائية وبيانات الأداء لسلالات الضان المحلية.'
       }
     },
     {
@@ -67,7 +68,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
       },
       content: {
         en: 'Providing technical assistance to farmers raising indigenous sheep breeds.',
-        ar: 'تقديم المساعدة الفنية للمزارعين الذين يربون سلالات الأغنام المحلية.'
+        ar: 'تقديم المساعدة الفنية للمزارعين الذين يربون سلالات الضأن المحلية.'
       }
     },
     {
@@ -113,15 +114,29 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
         }}
       >
         <div className="hero-content">
-          <h1 className={`hero-title ${currentLang}`}>
-            {currentLang === 'en' ? 'Omani Sheep Breeds' : 'سلالات الأغنام العمانية'}
-          </h1>
-          <p className={`hero-subtitle ${currentLang}`}>
-            {currentLang === 'en' ? 
-              'Discover the unique indigenous sheep breeds of Oman' :
-              'اكتشف سلالات الأغنام المحلية الفريدة في عمان'
-            }
-          </p>
+          <div style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.35)', 
+            padding: '20px 30px',
+            borderRadius: '8px',
+            backdropFilter: 'blur(2px)',
+            margin: '0 auto 20px auto',
+            maxWidth: '90%'
+          }}>
+            <h1 className={`hero-title ${currentLang}`}>
+              {currentLang === 'en' ? 'Omani Sheep Breeds' : 'سلالات الضأن العمانية'}
+            </h1>
+            <p className={`hero-subtitle ${currentLang}`}>
+              {currentLang === 'en' ? 
+                'Discover the unique indigenous sheep breeds of Oman' :
+                'اكتشف سلالات الضأن المحلية الفريدة في عمان'
+              }
+            </p>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+            <a href="#resources" className={`cta-button ${currentLang}`}>
+              {currentLang === 'en' ? 'Explore Resources' : 'استكشف الموارد'}
+            </a>
+          </div>
         </div>
       </section>
 
@@ -130,12 +145,12 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
         <div className="container">
           <div className="section-header">
             <h2 className={`section-title ${currentLang}`}>
-              {currentLang === 'en' ? 'Indigenous Sheep Breeds of Oman' : 'سلالات الأغنام المحلية في سلطنة عمان'}
+              {currentLang === 'en' ? 'Indigenous Sheep Breeds of Oman' : 'سلالات الضأن المحلية في سلطنة عمان'}
             </h2>
             <p className={`section-subtitle ${currentLang}`}>
               {currentLang === 'en' ? 
                 'Two main populations of sheep populations are found across the Sultanate, adapted to distinct regional environments' :
-                'توجد مجموعتان رئيسيتان من الأغنام في جميع أنحاء السلطنة، متكيفتان مع بيئات إقليمية مختلفة'
+                'توجد مجموعتان رئيسيتان من الضأن في جميع أنحاء السلطنة، متكيفتان مع بيئات إقليمية مختلفة'
               }
             </p>
           </div>
@@ -144,7 +159,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
               <p className={currentLang}>
                 {currentLang === 'en' ? 
                   'The Sultanate of Oman is home to two main populations of indigenous sheep: the Northern Omani sheep and the Dhofari sheep. These remarkable breeds represent centuries of adaptation to Oman\'s diverse environmental conditions. The Northern Omani sheep are the more numerous of the two, widely distributed across the northern governorates including Muscat, Al Sharqiyah, Al Batinah, Al Dakhiliyah, and Al Dhahirah. They are fat-tailed sheep well-adapted to the arid conditions and harsh climate of the region. The Dhofari sheep, found in the Dhofar Governorate, are smaller in number but equally important, specifically adapted to the unique seasonal monsoon (khareef) climate of southern Oman. Both breeds are valued for their meat production and resilience to local conditions, playing crucial roles in rural livelihoods and food security across the Sultanate.' :
-                  'تعد سلطنة عمان موطناً لمجموعتين رئيسيتين من الأغنام المحلية: الأغنام العمانية الشمالية والأغنام الظفارية. تمثل هاتان السلالتان الرائعتان قروناً من التكيف مع الظروف البيئية المتنوعة في عمان. الأغنام العمانية الشمالية هي الأكثر عدداً من بين الاثنتين، وهي منتشرة على نطاق واسع في المحافظات الشمالية بما في ذلك مسقط والشرقية والباطنة والداخلية والظاهرة. وهي أغنام ذات ذيل دهني متكيفة جيداً مع الظروف القاحلة والمناخ القاسي في المنطقة. الأغنام الظفارية، الموجودة في محافظة ظفار، أقل عدداً ولكنها لا تقل أهمية، متكيفة خصيصاً مع المناخ الموسمي الفريد للرياح الموسمية (الخريف) في جنوب عمان. كلتا السلالتين تحظى بتقدير لإنتاجها من اللحوم وقدرتها على الصمود أمام الظروف المحلية، وتلعب أدواراً حاسمة في سبل العيش الريفية والأمن الغذائي في جميع أنحاء السلطنة.'
+                  'تعد سلطنة عمان موطناً لمجموعتين رئيسيتين من الضأن المحلية: الضأن العمانية الشمالية والضأن الظفارية. تمثل هاتان السلالتان الرائعتان قروناً من التكيف مع الظروف البيئية المتنوعة في عمان. الضأن العمانية الشمالية هي الأكثر عدداً من بين الاثنتين، وهي منتشرة على نطاق واسع في المحافظات الشمالية بما في ذلك مسقط والشرقية والباطنة والداخلية والظاهرة. وهي الضأن ذات ذيل دهني متكيفة جيداً مع الظروف القاحلة والمناخ القاسي في المنطقة. الأغنام الظفارية، الموجودة في محافظة ظفار، أقل عدداً ولكنها لا تقل أهمية، متكيفة خصيصاً مع المناخ الموسمي الفريد للرياح الموسمية (الخريف) في جنوب عمان. كلتا السلالتين تحظى بتقدير لإنتاجها من اللحوم وقدرتها على الصمود أمام الظروف المحلية، وتلعب أدواراً حاسمة في سبل العيش الريفية والأمن الغذائي في جميع أنحاء السلطنة.'
                 }
               </p>
               <div className="stats-container">
@@ -175,7 +190,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
         <div className="container">
           <div className="section-header">
             <h2 className={`section-title ${currentLang}`}>
-              {currentLang === 'en' ? 'Sheep Breeds' : 'سلالات الأغنام في سلطنة عمان'}
+              {currentLang === 'en' ? 'Sheep Breeds' : 'سلالات الضأن في سلطنة عمان'}
             </h2>
           </div>
           <div className="resources-grid">
@@ -185,12 +200,12 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
               </div>
               <div className="card-content">
                 <h3 className={`card-title ${currentLang}`}>
-                  {currentLang === 'en' ? 'Northern Omani Sheep' : 'الأغنام العمانية الشمالية'}
+                  {currentLang === 'en' ? 'Northern Omani Sheep' : 'الضأن العمانية الشمالية'}
                 </h3>
                 <p className={`card-description ${currentLang}`}>
                   {currentLang === 'en' ? 
                     'The Northern Omani sheep are the predominant sheep breed in the Sultanate, representing more than 90% of the total sheep population. This is a fat-tailed sheep breed (Ovis aries) characterized by its ability to store energy in its fat tail, making it well-adapted to the arid environment. The color ranges from white to light brown, with some individuals having darker brown or black spots. These sheep have a medium-sized body frame with males being larger than females. They have a straight profile, medium-sized ears, and are typically polled (without horns). The breed is highly valued for its meat production and resilience to harsh environmental conditions. They are widely distributed throughout the northern governorates, including Muscat, North and South Al Sharqiyah, North and South Al Batinah, Al Dakhiliyah, and Al Dhahirah. Their adaptability to local conditions makes them essential for sustainable sheep farming in the region.' :
-                    'تعد الأغنام العمانية الشمالية السلالة السائدة في السلطنة، حيث تمثل أكثر من 90% من إجمالي أعداد الأغنام. هذه سلالة أغنام ذات ذيل دهني (Ovis aries) تتميز بقدرتها على تخزين الطاقة في ذيلها الدهني، مما يجعلها متكيفة جيداً مع البيئة القاحلة. يتراوح اللون من الأبيض إلى البني الفاتح، مع وجود بعض الأفراد التي تحمل بقعاً بنية أو سوداء داكنة. هذه الأغنام لها جسم متوسط الحجم مع الذكور الأكبر من الإناث. لديها ملف شخصي مستقيم، وآذان متوسطة الحجم، وعادة ما تكون بدون قرون. تحظى السلالة بتقدير كبير لإنتاجها من اللحوم ومرونتها في مواجهة الظروف البيئية القاسية. وهي منتشرة على نطاق واسع في جميع أنحاء المحافظات الشمالية، بما في ذلك مسقط وشمال وجنوب الشرقية وشمال وجنوب الباطنة والداخلية والظاهرة. قدرتها على التكيف مع الظروف المحلية تجعلها ضرورية لتربية الأغنام المستدامة في المنطقة.'
+                    'تعد الضأن العمانية الشمالية السلالة السائدة في السلطنة، حيث تمثل أكثر من 90% من إجمالي أعداد الضأن. هذه سلالة ضأن ذات ذيل دهني (Ovis aries) تتميز بقدرتها على تخزين الطاقة في ذيلها الدهني، مما يجعلها متكيفة جيداً مع البيئة القاحلة. يتراوح اللون من الأبيض إلى البني الفاتح، مع وجود بعض الأفراد التي تحمل بقعاً بنية أو سوداء داكنة. هذه الضأن لها جسم متوسط الحجم مع الذكور الأكبر من الإناث. لديها ملف شخصي مستقيم، وآذان متوسطة الحجم، وعادة ما تكون بدون قرون. تحظى السلالة بتقدير كبير لإنتاجها من اللحوم ومرونتها في مواجهة الظروف البيئية القاسية. وهي منتشرة على نطاق واسع في جميع أنحاء المحافظات الشمالية، بما في ذلك مسقط وشمال وجنوب الشرقية وشمال وجنوب الباطنة والداخلية والظاهرة. قدرتها على التكيف مع الظروف المحلية تجعلها ضرورية لتربية الضأن المستدامة في المنطقة.'
                   }
                 </p>
               </div>
@@ -201,12 +216,12 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
               </div>
               <div className="card-content">
                 <h3 className={`card-title ${currentLang}`}>
-                  {currentLang === 'en' ? 'Dhofari Sheep' : 'الأغنام الظفارية'}
+                  {currentLang === 'en' ? 'Dhofari Sheep' : 'الضأن الظفارية'}
                 </h3>
                 <p className={`card-description ${currentLang}`}>
                   {currentLang === 'en' ? 
                     'Dhofari sheep are a distinct population found exclusively in the Dhofar Governorate in southern Oman. This breed is smaller than Northern Omani sheep and represents less than 10% of the total sheep population in the country. They are well-adapted to the unique khareef (monsoon) climate of Dhofar, characterized by cool temperatures and heavy fog during the months of June to September. The breed typically has a black, white, or mixed coat coloration and maintains a lean body structure without the pronounced fat tail seen in Northern sheep. Dhofari sheep are valued for their meat quality and adaptation to the distinct environmental conditions of southern Oman, including their resistance to local parasites and diseases prevalent in the humid monsoon climate. They are mainly found in the mountainous regions of Dhofar and the Salalah plain.' :
-                    'الأغنام الظفارية هي سلالة مميزة توجد حصرياً في محافظة ظفار في جنوب عمان. هذه السلالة أصغر من الأغنام العمانية الشمالية وتمثل أقل من 10% من إجمالي أعداد الأغنام في البلاد. إنها متكيفة جيداً مع المناخ الفريد للخريف (الرياح الموسمية) في ظفار، والذي يتميز بدرجات حرارة باردة وضباب كثيف خلال الأشهر من يونيو إلى سبتمبر. تتميز السلالة عادة بلون أسود أو أبيض أو مختلط وتحافظ على بنية جسم نحيلة دون الذيل الدهني الواضح الموجود في الأغنام الشمالية. تحظى الأغنام الظفارية بتقدير لجودة لحومها وتكيفها مع الظروف البيئية المتميزة لجنوب عمان، بما في ذلك مقاومتها للطفيليات المحلية والأمراض السائدة في المناخ الرطب الموسمي. توجد بشكل رئيسي في المناطق الجبلية من ظفار وسهل صلالة.'
+                    'الضأن الظفارية هي سلالة مميزة توجد حصرياً في محافظة ظفار في جنوب عمان. هذه السلالة أصغر من الضأن العمانية الشمالية وتمثل أقل من 10% من إجمالي أعداد الأغنام في البلاد. إنها متكيفة جيداً مع المناخ الفريد للخريف (الرياح الموسمية) في ظفار، والذي يتميز بدرجات حرارة باردة وضباب كثيف خلال الأشهر من يونيو إلى سبتمبر. تتميز السلالة عادة بلون أسود أو أبيض أو مختلط وتحافظ على بنية جسم نحيلة دون الذيل الدهني الواضح الموجود في الأغنام الشمالية. تحظى الضأن الظفارية بتقدير لجودة لحومها وتكيفها مع الظروف البيئية المتميزة لجنوب عمان، بما في ذلك مقاومتها للطفيليات المحلية والأمراض السائدة في المناخ الرطب الموسمي. توجد بشكل رئيسي في المناطق الجبلية من ظفار وسهل صلالة.'
                   }
                 </p>
               </div>
@@ -223,7 +238,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
               {currentLang === 'en' ? 'Conservation Efforts' : 'جهود الحفاظ'}
             </h2>
             <p className={`section-subtitle ${currentLang}`}>
-              {currentLang === 'en' ? 'Protecting Oman\'s valuable sheep genetic resources' : 'حماية الموارد الوراثية القيمة للأغنام في عمان'}
+              {currentLang === 'en' ? 'Protecting Oman\'s valuable sheep genetic resources' : 'حماية الموارد الوراثية القيمة الضأن في عمان'}
             </p>
           </div>
           <div className="conservation-content">
@@ -287,7 +302,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
                     <p className={currentLang}>
                       {currentLang === 'en' ? 
                         'Research to characterize the genetic makeup of Northern and Dhofari sheep populations, including studies on their adaptation to specific environmental conditions.' :
-                        'بحث لتوصيف التركيب الجيني لسكان الأغنام الشمالية والظفارية، بما في ذلك دراسات حول تكيفها مع الظروف البيئية المحددة.'
+                        'بحث لتوصيف التركيب الجيني لسكان الضأن الشمالية والظفارية، بما في ذلك دراسات حول تكيفها مع الظروف البيئية المحددة.'
                       }
                     </p>
                   </div>
@@ -323,7 +338,7 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
                     <p className={currentLang}>
                       {currentLang === 'en' ? 
                         'Research on parasite resistance and disease management specific to each breed\'s environment, particularly for Dhofari sheep in monsoon conditions.' :
-                        'البحث في مقاومة الطفيليات وإدارة الأمراض الخاصة ببيئة كل سلالة، خاصة للأغنام الظفارية في ظروف الرياح الموسمية.'
+                        'البحث في مقاومة الطفيليات وإدارة الأمراض الخاصة ببيئة كل سلالة، خاصة الضأن الظفارية في ظروف الرياح الموسمية.'
                       }
                     </p>
                   </div>
@@ -336,80 +351,8 @@ const SheepPage = ({ currentLang, switchLanguage }) => {
           </div>
         </div>
       </section>
-
       {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <img src="/images/arabic_image_0.jpg" alt="Logo" className="footer-logo-img" />
-              <div className="footer-logo-text">
-                <h3 className={currentLang}>Livestock Research Center</h3>
-              </div>
-            </div>
-            <div className="footer-links">
-              <div className="footer-links-column">
-                <h4 className={currentLang}>
-                  {currentLang === 'en' ? 'Quick Links' : 'روابط سريعة'}
-                </h4>
-                <ul>
-                  <li><Link to="/">
-                    {currentLang === 'en' ? 'Home' : 'الرئيسية'}
-                  </Link></li>
-                  <li><a href="#about">
-                    {currentLang === 'en' ? 'About' : 'نبذة عامة'}
-                  </a></li>
-                  <li><a href="#resources">
-                    {currentLang === 'en' ? 'Resources' : 'الموارد'}
-                  </a></li>
-                  <li><a href="#conservation">
-                    {currentLang === 'en' ? 'Conservation' : 'جهود الحفاظ'}
-                  </a></li>
-                  <li><a href="#research">
-                    {currentLang === 'en' ? 'Research' : 'البحث'}
-                  </a></li>
-                </ul>
-              </div>
-              <div className="footer-links-column">
-                <h4 className={currentLang}>
-                  {currentLang === 'en' ? 'Resources' : 'الموارد'}
-                </h4>
-                <ul>
-                  <li><Link to="/cattle">
-                    {currentLang === 'en' ? 'Cattle' : 'الأبقار'}
-                  </Link></li>
-                  <li><Link to="/goats">
-                    {currentLang === 'en' ? 'Goats' : 'الماعز'}
-                  </Link></li>
-                  <li><Link to="/sheep">
-                    {currentLang === 'en' ? 'Sheep' : 'الأغنام'}
-                  </Link></li>
-                  <li><Link to="/camels">
-                    {currentLang === 'en' ? 'Camels' : 'الإبل'}
-                  </Link></li>
-                  <li><Link to="/poultry">
-                    {currentLang === 'en' ? 'Poultry' : 'الدواجن'}
-                  </Link></li>
-                </ul>
-              </div>
-            </div>
-            {/* <div className="footer-social">
-              <h4 className={currentLang}>
-                {currentLang === 'en' ? 'Follow Us' : 'تابعنا'}
-              </h4>
-              <div className="social-icons">
-                <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-                <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-                <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-                <a href="#" className="social-icon"><i className="fab fa-youtube"></i></a>
-              </div>
-            </div> */}
-          </div>
-          <div className="footer-bottom">
-          <p className={`copyright ${currentLang}`}>© 2025 Livestock Research Center. All Rights Reserved. Yasir Obaid Thani Al-Shukaili</p>
-          </div>
-        </div>
-      </footer>
+      <Footer currentLang={currentLang} />
     </div>
   );
 };
