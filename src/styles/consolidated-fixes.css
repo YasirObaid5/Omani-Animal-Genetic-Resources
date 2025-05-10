@@ -436,11 +436,16 @@ body[dir="rtl"] .header .site-logo-img {
     background-color: rgba(42, 95, 126, 0.9); /* Match header background */
     padding: 5px;
     border-radius: var(--border-radius-md);
+    min-width: 180px; /* Ensure minimum width to prevent overlap */
+    display: flex; /* Ensure flex display is maintained */
   }
   
   .lang-btn {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 0.9rem;
+    flex: 1; /* Equal width buttons */
+    min-width: 80px; /* Minimum width for each button */
+    text-align: center; /* Center text */
   }
   
   /* Prevent overlap with other elements */
@@ -459,12 +464,19 @@ body[dir="rtl"] .header .site-logo-img {
     background-color: rgba(42, 95, 126, 0.9); /* Match header background */
     padding: 5px;
     border-radius: var(--border-radius-md);
+    min-width: 180px; /* Ensure minimum width to prevent overlap */
+    width: auto; /* Allow it to grow if needed */
+    display: flex; /* Ensure flex display is maintained */
+    justify-content: space-between; /* Space buttons evenly */
   }
   
   .lang-btn {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 0.9rem;
     color: white; /* Better visibility */
+    flex: 1; /* Equal width buttons */
+    min-width: 80px; /* Minimum width for each button */
+    text-align: center; /* Center text */
   }
   
   .lang-btn.active {
