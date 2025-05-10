@@ -181,17 +181,57 @@ function HomePage({ currentLang, switchLanguage, menuOpen, setMenuOpen }) {
 
 // LanguageSwitcher Component
 function LanguageSwitcher({ currentLang, switchLanguage }) {
+  // Detect if we're on a 1366x768 resolution - this is a direct JavaScript fix
+  const is1366Resolution = window.innerWidth === 1366 || 
+                         (window.innerWidth >= 1365 && window.innerWidth <= 1367);
+  
+  // Create inline styles for that specific resolution
+  const languageSwitcherStyle = is1366Resolution ? {
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: '120px',
+    width: 'auto',
+    backgroundColor: 'rgba(42, 95, 126, 0.9)',
+    overflow: 'visible',
+    padding: '0'
+  } : {};
+  
+  const langBtnStyle = is1366Resolution ? {
+    display: 'block',
+    width: '100%',
+    minWidth: '0',
+    textAlign: 'center',
+    margin: '0',
+    padding: '12px 20px',
+    fontSize: '1rem',
+    color: 'white'
+  } : {};
+  
+  const firstBtnStyle = is1366Resolution ? {
+    ...langBtnStyle,
+    marginBottom: '1px',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: '8px 8px 0 0'
+  } : langBtnStyle;
+  
+  const secondBtnStyle = is1366Resolution ? {
+    ...langBtnStyle,
+    borderRadius: '0 0 8px 8px'
+  } : langBtnStyle;
+
   return (
-    <div className="language-switcher">
+    <div className="language-switcher" style={languageSwitcherStyle} data-resolution={is1366Resolution ? '1366' : 'other'}>
       <button 
         className={`lang-btn ${currentLang === 'en' ? 'active' : ''}`} 
         onClick={() => switchLanguage('en')}
+        style={firstBtnStyle}
       >
         English
       </button>
       <button 
         className={`lang-btn ${currentLang === 'ar' ? 'active' : ''}`} 
         onClick={() => switchLanguage('ar')}
+        style={secondBtnStyle}
       >
         العربية
       </button>
