@@ -269,7 +269,7 @@ const CattlePage = ({ currentLang, switchLanguage }) => {
                   <p className={currentLang}>
                     {currentLang === 'en' ? 
                       'The Ministry of Agriculture, Fisheries and Water Resources has established a gene bank at the Livestock Research Centre in Rumais, represented initially by a cattle herd. It also focuses on the cryopreservation of semen from the North Oman and South Oman cattle breeds. These frozen semen straws are then used for the insemination of breeders cattle herds.' :
-                      'أنشأت وزارة الزراعة والثروة السمكية وموارد المياه بنكًا للجينات في مركز بحوث الثروة الحيوانية في الرميس متمثلاً في قطيع الأبقار، وكذلك من خلال تجميد الحيوانات المنوية لسلالاتي أبقار شمال عمان وجنوب عمان، حيث يتم استخدام قشات السائل المنوي المجمد في تلقيح قطيع الأبقار لدى المربيين. '
+                      'أنشأت وزارة الثروة الزراعية والسمكية وموارد المياه بنكًا للجينات في مركز بحوث الثروة الحيوانية في الرميس متمثلاً في قطيع الأبقار، وكذلك من خلال تجميد الحيوانات المنوية لسلالاتي أبقار شمال عمان وجنوب عمان، حيث يتم استخدام قشات السائل المنوي المجمد في تلقيح قطيع الأبقار لدى المربيين. '
                     }
                   </p>
                 </div>

@@ -13,7 +13,7 @@ const Header = ({ currentLang }) => {
     <header className="header">
       <div className="container">
         
-        <div className="logo">
+        {/* <div className="logo">
           <img
             src="/images/logo.jpg"
             alt="Livestock Research Logo"
@@ -22,7 +22,7 @@ const Header = ({ currentLang }) => {
               e.target.src = "/logo512.png";
             }}
           />
-        </div>
+        </div> */}
         <nav className="main-nav">
           <button 
             className={`menu-toggle ${menuOpen ? 'active' : ''}`}
@@ -62,7 +62,7 @@ const Header = ({ currentLang }) => {
             </Link></li>
           </ul>
         </nav>
-        <div className="logo">
+        {/* <div className="logo">
           <img
             src="/images/oman2040-light.png"
             alt="Oman 2040 Vision Logo"
@@ -71,7 +71,7 @@ const Header = ({ currentLang }) => {
               e.target.src = "/logo512.png";
             }}
           />
-        </div>
+        </div> */}
         
       </div>
     </header>

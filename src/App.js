@@ -253,7 +253,7 @@ function Header({ currentLang, menuOpen, toggleMenu }) {
   return (
     <header className="header">
       <div className="container">
-        <div className="logo">
+        {/* <div className="logo">
           <img
             src="/images/logo.jpg"
             alt="Genetic Resources of Omani Domesticated Animals Logo"
@@ -262,7 +262,7 @@ function Header({ currentLang, menuOpen, toggleMenu }) {
               e.target.src = "/logo512.png";
             }}
           />
-        </div>
+        </div> */}
         <nav className="main-nav">
           <button 
             className={`menu-toggle ${menuOpen ? 'active' : ''}`}
@@ -291,7 +291,7 @@ function Header({ currentLang, menuOpen, toggleMenu }) {
             <li><a href="#contact" className="nav-link">{translations[currentLang].nav?.contact || 'Contact'}</a></li>
           </ul>
         </nav>
-        <div className="logo">
+        {/* <div className="logo">
           <img
             src="/images/oman2040-light.png"
             alt="Oman 2040 Vision Logo"
@@ -300,7 +300,7 @@ function Header({ currentLang, menuOpen, toggleMenu }) {
               e.target.src = "/logo512.png";
             }}
           />
-        </div>
+        </div> */}
        
       </div>
     </header>
@@ -615,8 +615,8 @@ function ContactSection({ currentLang }) {
               <div key={key} className="info-item">
                 <i className={`fas fa-${key === 'address' ? 'map-marker-alt' : key}`}></i>
                 <div className="info-text">
-                  <h3 className={currentLang}>{info.title}</h3>
-                  <p className={currentLang}>{info.content}</p>
+                  {/* <h3 className={currentLang}>{info.title}</h3> */}
+                  {/* <p className={currentLang}>{info.content}</p> */}
                 </div>
               </div>
             ))}
