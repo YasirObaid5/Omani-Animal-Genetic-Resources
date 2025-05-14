@@ -13,16 +13,16 @@ const Header = ({ currentLang }) => {
     <header className="header">
       <div className="container">
         
-        // <div className="logo">
-        //   <img
-        //     src="/images/logo.jpg"
-        //     alt="Livestock Research Logo"
-        //     className="site-logo-img"
-        //     onError={(e) => {
-        //       e.target.src = "/logo512.png";
-        //     }}
-        //   />
-        // </div>
+        <div className="logo">
+          <img
+            src="/images/logo.jpg"
+            alt="Livestock Research Logo"
+            className="site-logo-img"
+            onError={(e) => {
+              e.target.src = "/logo512.png";
+            }}
+          />
+        </div>
         <nav className="main-nav">
           <button 
             className={`menu-toggle ${menuOpen ? 'active' : ''}`}
@@ -62,16 +62,16 @@ const Header = ({ currentLang }) => {
             </Link></li>
           </ul>
         </nav>
-        // <div className="logo">
-        //   <img
-        //     src="/images/oman2040-light.png"
-        //     alt="Oman 2040 Vision Logo"
-        //     className="site-logo-img"
-        //     onError={(e) => {
-        //       e.target.src = "/logo512.png";
-        //     }}
-        //   />
-        // </div>
+        <div className="logo">
+          <img
+            src="/images/oman2040-light.png"
+            alt="Oman 2040 Vision Logo"
+            className="site-logo-img"
+            onError={(e) => {
+              e.target.src = "/logo512.png";
+            }}
+          />
+        </div>
         
       </div>
     </header>
